@@ -1,0 +1,43 @@
+{
+    "target": "Crevis GN9273",
+    "tasks": [
+        {
+            "name": "Main task",
+            "type": "cycle",
+            "program": "PLC_PRG",
+            "time": "20ms"
+        },
+        {
+            "name": "Initialize things",
+            "type": "onload",
+            "program": "PLC_PRG.init()"
+        }
+    ],
+    "devices": [
+        {
+            "type": "com",
+            "protocol": "modbus",
+            "children": [
+                {
+                    "name": "COM Master",
+                    "type": "master",
+                    "stopbit": 1,
+                    "bitrate": 9600,
+                    "children": [
+                        {
+                            "name": "VFD",
+                            "address": 16,
+                            "list":[
+                                {
+                                    "name":"vfdHGZ",
+                                    "type": "2byte",
+                                    "address": 40059
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

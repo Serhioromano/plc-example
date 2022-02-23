@@ -1,0 +1,7 @@
+NAMESPACE MySpace
+  TYPE ALARM : STRUCT
+          State : BOOL; (* State of the alarm *)
+          Confirmed : BOOL := FALSE; (* If confirmed *)
+      END_STRUCT
+  END_TYPE
+END_NAMESPACE
